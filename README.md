@@ -2,6 +2,10 @@
 
 A Django polls application ready to deploy on Convox.
 
+This example demonstrates how to deploy a Django application with PostgreSQL on Convox. The polls app showcases database migrations, static file handling, and the Django admin interface - everything you need to get your Django project started.
+
+Deploy to Convox Cloud for a fully-managed platform experience, or to your own Convox Rack for complete control over your infrastructure. Either way, you'll get automatic SSL, load balancing, and zero-downtime deployments out of the box.
+
 ## Deploy to Convox Cloud
 
 1. **Create a Cloud Machine** at [console.convox.com](https://console.convox.com)
