@@ -1,12 +1,32 @@
+environment:
+  - SECRET_KEY
+  - DEBUG=False
+  - ALLOWED_HOSTS=*
+
 resources:
   database:
     type: postgres
+    options:
+      storage: 10
+      version: 13
+
 services:
   web:
     build: .
-    command: gunicorn mysite.wsgi --bind=0.0.0.0:8000
+    command: gunicorn mysite.wsgi --bind=0.0.0.0:8000 --workers=2
     port: 8000
+    health: /admin/login/
+    scale:
+      count: 1
+      cpu: 250
+      memory: 512
     resources:
       - database
-    environment:
-      - SECRET_KEY=foo
+    
+  migrate:
+    build: .
+    command: python manage.py migrate
+    scale:
+      count: 0  # Template service for migrations
+    resources:
+      - database

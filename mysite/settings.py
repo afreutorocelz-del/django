@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CSRF Settings for Convox Cloud
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.convox.cloud',
+    'http://localhost:8000',
+]
+
 
 # Application definition
 
@@ -125,3 +131,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
