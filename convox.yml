@@ -17,9 +17,9 @@ services:
     port: 8000
     health: /admin/login/
     scale:
-      count: 1
-      cpu: 250
-      memory: 512
+      count: 10
+      cpu: 4000
+      memory: 4096
     resources:
       - database
     
